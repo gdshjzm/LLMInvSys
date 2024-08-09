@@ -1,20 +1,57 @@
-# 阅读我
-## 用法
-该文档包含一个计算器界面，该界面通过一个后端服务器与一个LLM进行交互，以生成URL。用户可以将prompt里面输入想要输入的然后给到LLM，LLM输出URL，然后用户将URL输入到浏览器，查看结果。
+# LLMInvSys
+## Usage
+This document includes a calculator interface that interacts with a Large Language Model (LLM) through a backend server to generate URLs. Users can input their requests into the prompt, which is then passed to the LLM. The LLM outputs a URL, which the user can then enter into a browser to view the results.
 
-有一部分是和项目9相关的，计算器的网页界面也是与之相关。
-## 文件结构
+Part of this is related to Project 9, and the calculator's web interface is also associated with it.
+
+## File Structure
 ```plaintext
 /api-main
-    /node_modules           ->需要使用的库
+    /node_modules           -> Required libraries
         /express            
-        /COR
-    /API_Documentation.md   ->API文档(markdown版)
-    /calculatorWeb.html     ->计算器界面
-    /package.json           ->基础包
+        /CORS
+    /API_Documentation.md   -> API documentation (markdown version)
+    /calculatorWeb.html     -> Calculator interface
+    /package.json           -> Base package information
     /package-lock.json
-    /Prompts.txt            ->写给LLM的prompt，让它生成URL
-    /readme.md              ->阅读手册
-    /script.js              ->连接前端和后端的脚本
-    /server.js              ->后端服务器
+    /Prompts.txt            -> Prompts for the LLM to generate URLs
+    /readme.md              -> Readme file
+    /script.js              -> Script connecting the frontend and backend
+    /server.js              -> Backend server
 ```
+
+## Installation
+### Install node.js
+You can go to the ![Nodejs](https://nodejs.org/en/) to install Node.js.
+### Install Ollama (Optional, if you want automation)
+You can go to ![Ollama](https://ollama.com) to install ollama.
+#### Install llama3.1
+After you installed the ollama, you're recommended to install llama3.1.
+```bash
+ollama run llama3.1
+```
+**Notice:** You need to make sure that you have the enough space for llama3.1--4.4GB.
+### Install express
+The server needs express.js to support the server running.
+```bash
+npm install express
+```
+### Run the code.
+Keep your server listening on the port 7000.
+```bash
+node server.js
+```
+## Automation
+to run the python scripts, ypu need to install such libraries.
+```bash
+pip install langchain
+pip install langchain_community
+pip install langchain_core
+pip install requests
+pip install webbrowser
+```
+Then you need to keep llama3.1 open in the backend
+```bash
+ollama run llama3.1
+```
+And just input your query to get answers!
